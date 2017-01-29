@@ -1,0 +1,17 @@
+c:\users\александр\documents\visual studio 2015\Projects\SHA256HashGenerator\SHA256HashGenerator\bin\Debug\SHA256HashGenerator.exe
+c:\users\александр\documents\visual studio 2015\Projects\SHA256HashGenerator\SHA256HashGenerator\bin\Debug\SHA256HashGenerator.pdb
+c:\users\александр\documents\visual studio 2015\Projects\SHA256HashGenerator\SHA256HashGenerator\obj\Debug\SHA256HashGenerator.csprojResolveAssemblyReference.cache
+c:\users\александр\documents\visual studio 2015\Projects\SHA256HashGenerator\SHA256HashGenerator\obj\Debug\SHA256HashGenerator.exe
+c:\users\александр\documents\visual studio 2015\Projects\SHA256HashGenerator\SHA256HashGenerator\obj\Debug\SHA256HashGenerator.pdb
+C:\Users\Александр\Documents\Visual Studio 2015\Projects\version2\SHA256HashGenerator\SHA256HashGenerator\obj\Debug\SHA256HashGenerator.exe
+C:\Users\Александр\Documents\Visual Studio 2015\Projects\version2\SHA256HashGenerator\SHA256HashGenerator\obj\Debug\SHA256HashGenerator.pdb
+C:\Users\Александр\Documents\Visual Studio 2015\Projects\version2\SHA256HashGenerator\SHA256HashGenerator\obj\Debug\SHA256HashGenerator.csprojResolveAssemblyReference.cache
+C:\Users\Александр\Documents\Visual Studio 2015\Projects\version2\SHA256HashGenerator\SHA256HashGenerator\bin\Debug\SHA256HashGenerator.exe
+C:\Users\Александр\Documents\Visual Studio 2015\Projects\version2\SHA256HashGenerator\SHA256HashGenerator\bin\Debug\SHA256HashGenerator.pdb
+C:\Users\Александр\Documents\Visual Studio 2015\Projects\version2\SHA256HashGenerator\SHA256HashGenerator\bin\Debug\CommandLine.dll
+C:\Users\Александр\Documents\Visual Studio 2015\Projects\version 3\SHA256HashGenerator\SHA256HashGenerator\obj\Debug\SHA256HashGenerator.exe
+C:\Users\Александр\Documents\Visual Studio 2015\Projects\version 3\SHA256HashGenerator\SHA256HashGenerator\obj\Debug\SHA256HashGenerator.pdb
+C:\Users\Александр\Documents\Visual Studio 2015\Projects\version 3\SHA256HashGenerator\SHA256HashGenerator\obj\Debug\SHA256HashGenerator.csprojResolveAssemblyReference.cache
+C:\Users\Александр\Documents\Visual Studio 2015\Projects\version 3\SHA256HashGenerator\SHA256HashGenerator\bin\Debug\SHA256HashGenerator.exe
+C:\Users\Александр\Documents\Visual Studio 2015\Projects\version 3\SHA256HashGenerator\SHA256HashGenerator\bin\Debug\SHA256HashGenerator.pdb
+C:\Users\Александр\Documents\Visual Studio 2015\Projects\version 3\SHA256HashGenerator\SHA256HashGenerator\bin\Debug\CommandLine.dll
