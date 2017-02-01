@@ -8,7 +8,7 @@ namespace SHA256HashGenerator
         public string InputFileName
         { get; set; }
 
-        [Option('s', "size", HelpText = "Размер блока в байтах", DefaultValue = 2097152)]
+        [Option('s', "size", HelpText = "Размер блока в байтах", DefaultValue = 100097152)]
         public int BlockSize
         { get; set; }
     }

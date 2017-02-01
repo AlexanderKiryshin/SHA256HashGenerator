@@ -23,8 +23,9 @@ namespace SHA256HashGenerator.BlockReaders
             {
                 int bytesReaded;
                 int readedByteBlock = partBlockId * partBlockSize;
+                long length = stream.Length;
                 bBlockIsOver = readedByteBlock + partBlockSize > blockSize;
-                bool bIncorrectFullBlockId = fullBlockId * blockSize + 
+                bool bIncorrectFullBlockId = (long)fullBlockId * blockSize + 
                     readedByteBlock - stream.Length >= partBlockSize;
                 if (bIncorrectFullBlockId)
                  {

@@ -1,6 +1,7 @@
 ﻿using SHA256HashGenerator.BlockReaders;
 using SHA256HashGenerator.Processors;
 using System;
+using System.Diagnostics;
 using System.IO;
 
 namespace SHA256HashGenerator
@@ -12,6 +13,8 @@ namespace SHA256HashGenerator
         private bool isCanceled;
         static void Main(string[] args)
         {
+            Stopwatch time = new Stopwatch();
+            time.Start();
             OutputConsole.StartMessage();
             Console.ReadKey();
             Console.WriteLine();
@@ -36,6 +39,7 @@ namespace SHA256HashGenerator
             { 
                 OutputConsole.ExitMessage();
             }
+            Console.WriteLine(time.ElapsedMilliseconds);
             Console.ReadKey();
         }
 
@@ -45,9 +49,9 @@ namespace SHA256HashGenerator
             {
                 inputStream = BlockReader.GetInputStream(options.InputFileName);
             }
-            catch (FileNotFoundException ex)
+            catch (FileNotFoundException)
             {
-                OutputConsole.DisplayError(ex);
+                Console.WriteLine("Файл не найден");
                 return;
             }
             catch (FileLoadException ex)
