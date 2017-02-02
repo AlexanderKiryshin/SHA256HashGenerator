@@ -70,7 +70,7 @@ namespace SHA256HashGeneratorTest
             pb[2] = (PartBlock)blockReader.GetPartBlock(0, 2);
             pb[3] = (PartBlock)blockReader.GetPartBlock(1, 0);
             pb[4] = (PartBlock)blockReader.GetPartBlock(1, 1);
-            pb[5] = (PartBlock)blockReader.GetPartBlock(1, 2); 
+            pb[5] = (PartBlock)blockReader.GetPartBlock(1, 2);
             pb[6] = (PartBlock)blockReader.GetPartBlock(2, 0);
             pb[7] = (PartBlock)blockReader.GetPartBlock(2, 1);
             SHA256Managed sha256Verified = new SHA256Managed();
@@ -79,7 +79,7 @@ namespace SHA256HashGeneratorTest
             byte[][] notVerifiedHash = new byte[3][];
             sha256NotVerified.CalculateSha256(pb[0]);
             sha256NotVerified.CalculateSha256(pb[1]);
-            notVerifiedHash[0]=sha256NotVerified.CalculateSha256(pb[2]);
+            notVerifiedHash[0] = sha256NotVerified.CalculateSha256(pb[2]);
             sha256NotVerified.CalculateSha256(pb[3]);
             sha256NotVerified.CalculateSha256(pb[4]);
             notVerifiedHash[1] = sha256NotVerified.CalculateSha256(pb[5]);
@@ -114,6 +114,51 @@ namespace SHA256HashGeneratorTest
                 }
             }
 
+            Assert.AreEqual(true, bEqual);
+        }
+        [TestMethod]
+        public void CalculateSha256PartBlock2Test()
+        {
+            Stream stream = BlockReader.GetInputStream("C:/test/test.avi");
+            PartBlockReader blockReader = new PartBlockReader(stream, 100097152, 2097152);
+
+            long length = stream.Length - 9 * 100097152;
+            int count = (int)Math.Ceiling((double)length / 2097152);
+            PartBlock[] pb = new PartBlock[count];
+            SHA256 sha256NotVerified = new SHA256();
+         
+            for (int i=0;i<count;i++)
+            {
+                pb[i] = (PartBlock)blockReader.GetPartBlock(9, i);
+            }
+
+            for (int i = 0; i < count-1; i++)
+            {
+                sha256NotVerified.CalculateSha256(pb[i]);
+            }
+            SHA256Managed sha256Verified = new SHA256Managed();
+            byte[] notVerifiedHash;
+            notVerifiedHash = sha256NotVerified.CalculateSha256(pb[count-1]);            
+            FullBlockReader fullBlockReader = new FullBlockReader(BlockReader.GetInputStream("C:/test/test.avi"), 100097152);
+            FullBlock block=new FullBlock();
+            for (int i = 0; i < 10; i++)
+            {
+                block=(FullBlock)fullBlockReader.GetNextBlock();
+            }
+            byte[] verifiedHash = sha256Verified.ComputeHash(block.Data);
+
+            bool bEqual = true;
+
+                if (verifiedHash.Length != notVerifiedHash.Length)
+                {
+                    bEqual = false;
+                }            
+                int length1 = verifiedHash.Length;
+                for (int j = 0; j < length1; j++)
+                {
+                    if (verifiedHash[j] != notVerifiedHash[j])
+                        bEqual = false;
+                }           
             Assert.AreEqual(true, bEqual);
         }
     }

@@ -48,11 +48,6 @@ namespace SHA256HashGenerator.Processors
                         {
                             if ((long)j * blockSize + i * partBlockSize<streamLength)
                             {
-                                
-                                if ((j==238)&&(i==16))
-                                {
-                                    Console.WriteLine();
-                                }
                                 Block nextBlock = ((PartBlockReader)blockReader).GetPartBlock(j, i);
                                 butesReaded += ((PartBlock)nextBlock).Size;
                                 blocksHandler.AddBlock(nextBlock);

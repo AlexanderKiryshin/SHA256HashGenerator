@@ -78,7 +78,7 @@ namespace SHA256HashGenerator.BlockHandlers
         {
             try
             {
-                int index = calculatedPartBlocksCount % threadsCount;
+                int index = ((PartBlock)block).IdFullBlock % threadsCount;
                 input[index].AddItem((PartBlock)block);
                 calculatedPartBlocksCount++;
             }

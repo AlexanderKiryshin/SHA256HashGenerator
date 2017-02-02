@@ -12,11 +12,11 @@ namespace SHA256HashGenerator
         private Stream inputStream;
         private bool isCanceled;
         static void Main(string[] args)
-        {
-            Stopwatch time = new Stopwatch();
-            time.Start();
+        {          
             OutputConsole.StartMessage();
             Console.ReadKey();
+            Stopwatch time = new Stopwatch();
+            time.Start();
             Console.WriteLine();
             Options options = new Options();
             CommandLine.Parser.Default.ParseArguments(args, options);
