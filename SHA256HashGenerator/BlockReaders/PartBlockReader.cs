@@ -73,13 +73,18 @@ namespace SHA256HashGenerator.BlockReaders
 
             if (bBlockIsOver)
             {
-                block.SizeFullBlock = partBlockId * partBlockSize + buffer.Length;
+                block.SizeFullBlock = partBlockId * partBlockSize + buffer.Length;                
             }
             
             block.Id = partBlockId;
             block.Size = buffer.Length;
             block.Data = buffer;
             block.IdFullBlock = fullBlockId;
+
+           /* if (bBlockIsOver)
+            {
+                Console.WriteLine(block.IdFullBlock);
+            }*/
             return block;
         }
     }

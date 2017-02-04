@@ -26,35 +26,27 @@ namespace SHA256HashGenerator
         public byte[] CalculateSha256(PartBlock partBlock)
         {
             int index = sha256DataList.IndexOfKey(partBlock.IdFullBlock);
-            SHA256Data sha256Data = null;
+            SHA256Managed sha256Data = null;
             if (index >= 0)
             {
-                sha256Data = (SHA256Data)sha256DataList.GetByIndex(index);
+                sha256Data = (SHA256Managed)sha256DataList.GetByIndex(index);
             }
             if (sha256Data == null)
             {
-                sha256Data = new SHA256Data();
-              
-                sha256Data.Sha256 = new SHA256Managed();
+                sha256Data = new SHA256Managed();
                 lock (lockObj)
                 {
                    sha256DataList.Add(partBlock.IdFullBlock, sha256Data);
                 }
             }
-            if (partBlock.SizeFullBlock != 0)
-            {
-                sha256Data.BlockSize = partBlock.SizeFullBlock;
-            }
-            sha256Data.Sha256.TransformBlock(partBlock.Data, 0, partBlock.Size, partBlock.Data, 0);
-            sha256Data.CurrentCalculated += partBlock.Size;
-            bool bBlockCalculateIsOver = sha256Data.CurrentCalculated == sha256Data.BlockSize;
-            if ((sha256Data.BlockSize != 0)
-                && (bBlockCalculateIsOver))
+            bool bBlockCalculateIsOver = (partBlock.SizeFullBlock != 0) ? true : false;
+            sha256Data.TransformBlock(partBlock.Data, 0, partBlock.Size, partBlock.Data, 0);
+            if (bBlockCalculateIsOver)
             {
                 byte[] input = new byte[0];
-                sha256Data.Sha256.TransformFinalBlock(input, 0, 0);
+                sha256Data.TransformFinalBlock(input, 0, 0);
                 sha256DataList.Remove(partBlock.IdFullBlock);
-                return sha256Data.Sha256.Hash;
+                return sha256Data.Hash;
             }
             return new byte[0];
         }

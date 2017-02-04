@@ -40,18 +40,38 @@ namespace SHA256HashGenerator.BlockHandlers
         {
             SHA256 sha256Calculator = new SHA256();
             int numberThread = threadNumbers.GetItem();
+            int number=0;
+            int[] size = new int[50];
             while (true)
             {
                 PartBlock block = null;
                 try
-                {                    
-                    block = input[numberThread].GetItem();                 
+                {                                        
+                    block = input[numberThread].GetItem();
+                    //    if (number!=block.IdFullBlock)
+                   
                     if (block != null)
-                    {
+                    {                       
+                       /* size[number] = block.Size;
+                        number++;*/
                         byte[] hash = sha256Calculator.CalculateSha256(block);
+                       /* if (block.Id == 47)
+                        {
+                            for (int i=0;i<50;i++)
+                            {
+                                Console.Write(size[i] + " ");
+                            }
+
+                            Console.WriteLine();
+                            Console.WriteLine("num" + number + "block" + block.IdFullBlock);
+                            OutputConsole.DisplayBlockHash(block.IdFullBlock + 1, hash);
+                            number = 0;
+                           // number = block.IdFullBlock;
+                        }*/
+                        
                         if (hash.Length != 0)
                         {
-                            OutputConsole.DisplayBlockHash(block.IdFullBlock+1, hash);
+                                OutputConsole.DisplayBlockHash(block.IdFullBlock+1, hash);
                         }
                     }
                     else

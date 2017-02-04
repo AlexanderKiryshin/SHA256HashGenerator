@@ -3,7 +3,7 @@ namespace SHA256HashGenerator.BlockReaders
 {
     public abstract class BlockReader
     {
-        public const int LIMIT_DATA_IN_ONE_BLOCK = 200097152;
+        public const int LIMIT_DATA_IN_ONE_BLOCK = 2097152;
         protected readonly Stream stream;
         protected readonly int blockSize;
         public BlockReader(Stream stream, int blockSize)
