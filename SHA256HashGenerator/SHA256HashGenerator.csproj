@@ -55,7 +55,6 @@
     <Compile Include="OutputConsole.cs" />
     <Compile Include="SHA256.cs" />
     <Compile Include="DataClass\PartBlock.cs" />
-    <Compile Include="DataClass\SHA256Data.cs" />
     <Compile Include="OperationType.cs" />
     <Compile Include="Options.cs" />
     <Compile Include="Processors\AbstractProcessor.cs" />

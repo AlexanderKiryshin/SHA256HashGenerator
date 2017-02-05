@@ -15,8 +15,6 @@ namespace SHA256HashGenerator
         {          
             OutputConsole.StartMessage();
             Console.ReadKey();
-            Stopwatch time = new Stopwatch();
-            time.Start();
             Console.WriteLine();
             Options options = new Options();
            try
@@ -50,7 +48,6 @@ namespace SHA256HashGenerator
             { 
                 OutputConsole.ExitMessage();
             }
-            Console.WriteLine(time.ElapsedMilliseconds);
             Console.ReadKey();
         }
 

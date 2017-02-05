@@ -70,21 +70,14 @@ namespace SHA256HashGenerator.BlockReaders
         {
             var buffer = GetPartBlockBytes(fullBlockId,partBlockId);
             PartBlock block = new PartBlock();
-
             if (bBlockIsOver)
             {
                 block.SizeFullBlock = partBlockId * partBlockSize + buffer.Length;                
-            }
-            
+            }           
             block.Id = partBlockId;
             block.Size = buffer.Length;
             block.Data = buffer;
             block.IdFullBlock = fullBlockId;
-
-           /* if (bBlockIsOver)
-            {
-                Console.WriteLine(block.IdFullBlock);
-            }*/
             return block;
         }
     }

@@ -17,6 +17,11 @@ namespace SHA256HashGenerator
         {
             Console.ForegroundColor = ConsoleColor.Gray;
         }
+        /// <summary>
+        /// Вывести в консоль информацию о хеше указанного блока
+        /// </summary>
+        /// <param name="id">номер блока</param>
+        /// <param name="hash">хеш</param>
         public static void DisplayBlockHash(int id, byte[] hash)
         {
             lock (lockObj)
@@ -66,7 +71,7 @@ namespace SHA256HashGenerator
         {
             Console.WriteLine("Задать параметры работы программы можно в командной строке");
             Console.WriteLine("Синтаксис -i источник [-s размер]");
-            Console.WriteLine("-i задает путь до входного файла,где источник путь до файла");
+            Console.WriteLine("-i задает путь до входного файла,где [источник] - путь до файла");
             Console.WriteLine("-s задает размер блока в байтах");
             Console.WriteLine("Завершить программу досрочно можно комбинацией клавиш Ctrl+C");
             Green();
